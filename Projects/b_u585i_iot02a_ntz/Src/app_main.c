@@ -47,6 +47,17 @@
 
 #include "cli/cli.h"
 
+/* workaround for the issue with the Compiler" */
+__attribute__((weak)) void _close(void){}
+__attribute__((weak)) void _lseek(void){}
+__attribute__((weak)) void _read(void){}
+__attribute__((weak)) void _write(void){}
+__attribute__((weak)) void _kill(void){}
+__attribute__((weak)) void _getpid(void){}
+__attribute__((weak)) void _fstat(void){}
+__attribute__((weak)) void _open(void){}
+__attribute__((weak)) void _isatty(void){}
+
 /* Definition for Qualification Test */
 #if ( DEVICE_ADVISOR_TEST_ENABLED == 1 ) || ( MQTT_TEST_ENABLED == 1 ) || ( TRANSPORT_INTERFACE_TEST_ENABLED == 1 ) || \
     ( OTA_PAL_TEST_ENABLED == 1 ) || ( OTA_E2E_TEST_ENABLED == 1 ) || ( CORE_PKCS11_TEST_ENABLED == 1 )
